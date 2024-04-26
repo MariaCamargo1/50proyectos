@@ -1,0 +1,103 @@
+/**
+ * box-sizing: investigar
+ * css anidado: implementar
+ * dvh, vh, wh, vw, rem, em: investigar
+*/
+* {
+  box-sizing: border-box;
+} 
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /*100% del vista disponible en altura*/
+  overflow: hidden;
+  margin: 0;
+
+}
+
+.container{
+  display: flex;
+  width: 90vw;
+}
+  /* explicar el selector */
+  /*container hover se aplica cuando el mouse esta sobre un elemntos, el selector hijo indica que no 
+  se le aplicara opacidad a los elementos los cuales no se esta hoveriando y el not hover selecciona 
+  todos los elementos que no estan siendo hoveriando y se le aplica la opacidad*/
+.container:hover > :not(:hover){
+  opacity: 0.5;
+}
+
+
+.cat-card:nth-child(1) {
+  background-image: url(Img/pepa.jpg);
+}
+
+.cat-card:nth-child(2) {
+  background-image: url(Img/blanquito.jpg);
+}
+
+.cat-card:nth-child(3) {
+  background-image: url(Img/nube.jpg);
+}
+
+.cat-card:nth-child(4) {
+  background-image: url(Img/harry.jpg);
+}
+
+.cat-card:nth-child(5) {
+  background-image: url(Img/flores.jpg);
+}
+
+.cat-card {
+  background-size:cover; /*contain*/
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  -webkit-transition: all 900ms ease-in;
+  filter: grayscale(100%);
+  -webkit-box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.75);
+}
+
+.cat-card:hover {
+  filter: grayscale(0%);
+}
+
+.cat-card h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.cat-card.active {
+  flex: 5;
+}
+
+.cat-card.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .container {
+    flex: 1;
+    width: 100vw;
+    margin: 9px;
+  }
+
+  .cat-card:nth-of-type() {
+    display: none;
+  }
+}
