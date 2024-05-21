@@ -25,7 +25,7 @@
             insert.innerHTML = '';
 
             const key = event.key === ' ' ? 'Space' : event.key;
-
+            /**funcion ternaria */
             function createDiv(info, tag) {
                 const div = document.createElement('div');
                 div.className = 'key';
